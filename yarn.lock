@@ -1473,10 +1473,10 @@
   dependencies:
     eslint-visitor-keys "^1.1.0"
 
-"@xtravision/xtravision-react-native@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@xtravision/xtravision-react-native/-/xtravision-react-native-0.1.0.tgz#c71655526d5c4ad8b0c364771762314b49fa5f20"
-  integrity sha512-IK1CZL19AUGd1cLOEfpV29qHHTchbbiiBRr0inS8iIA4K40q/KIM78nvVo2WDXRzy0pyRNSST2K0tNqSPbfIRA==
+"@xtravision/xtravision-react-native@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@xtravision/xtravision-react-native/-/xtravision-react-native-0.2.0.tgz#66173b2515f4c9d508913231f64eaaf91b5bf9ec"
+  integrity sha512-AjzOciJmctDkbBB+KylynEdN9lir40AmB1EoKzsTDyr8fZdoXFmT56x+Z6wAELVGUHFOguABMkBsIkdtvRU/ZQ==
   dependencies:
     lodash "^4.17.21"
     react-native-use-websocket "^0.2.6"
