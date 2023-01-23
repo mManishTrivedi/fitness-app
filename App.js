@@ -20,7 +20,7 @@ export default function App() {
   const [inPose, setInPose] = React.useState(false);
   const [repsCounter, setRepsCounter] = React.useState(0);
   // required prop:
-  function onServerResponse(serverResponse: any): void {
+  function onServerResponse(serverResponse) {
     if (serverResponse.errors.length) {
       console.error('Server Error Response:', serverResponse.errors);
       return;
@@ -28,13 +28,31 @@ export default function App() {
 
     console.log('Server Data:', serverResponse.data);
 
-    setRepsCounter(serverResponse.data?.reps);
-    setInPose(serverResponse.data?.in_pose);
+    // // TODO: put proper handling as per assessment
+    // setRepsCounter(serverResponse.data?.additional_response?.reps.total);
+    // setInPose(serverResponse.data?.additional_response?.in_pose);
   }
 
-  const authToken = '__MY-PRIVATE-TOKEN__';
-  const assessmentName = 'SQUATS';
-  const cameraPosition = 'back';
+  // eslint-disable-next-line prettier/prettier
+  const authToken = "__MY-PRIVATE-TOKEN__"; // IMP: user-specific token
+  const assessmentName = 'PUSH_UPS';
+  const cameraPosition = 'front';
+
+  const connectionData = {
+    assessment_name: assessmentName,
+    auth_token: authToken,
+    assessment_config: {}, // check document for more details
+    user_config: {}, // check document for more details
+  };
+
+  const requestData = {
+    isPreJoin: false,
+  };
+
+  const libData = {
+    onServerResponse,
+    cameraPosition,
+  };
 
   return (
     <View style={styles.container}>
@@ -42,15 +60,14 @@ export default function App() {
         <>
           {/* <Text>App has Permission</Text> */}
           <Assessment
-            cameraPosition={cameraPosition}
-            connection={{authToken, queryParams: {}}}
-            assessment={assessmentName}
-            isEducationScreen={false}
-            onServerResponse={onServerResponse}
+            connectionData={connectionData}
+            requestData={requestData}
+            libData={libData}
           />
-          <Text>
+
+          {/* <Text>
             In-Pose: {inPose} ; Reps Counter: {repsCounter}
-          </Text>
+          </Text> */}
         </>
       ) : (
         <>
